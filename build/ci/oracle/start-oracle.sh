@@ -2,11 +2,11 @@
 docker version
 
 # this docker image has the following users/credentials (user/password = system/oracle)
-docker pull pvargacl/oracle-xe-18.4.0:latest
+docker pull gvenzl/oracle-xe:latest
 
 # start the dockerized oracle-xe instance (the container will be destroyed/removed on stopping)
 # this container can be stopped using: docker stop geotools
-docker run --rm -p 1521:1521 --name geotools -h geotools -d pvargacl/oracle-xe-18.4.0:latest
+docker run --rm -p 1521:1521 --name geotools -h geotools -e ORACLE_PASSWORD=oracle -d gvenzl/oracle-xe:latest
 
 printf "\n\nStarting Oracle XE container, this could take a few minutes..."
 printf "\nWaiting for Oracle XE database to start up.... "
